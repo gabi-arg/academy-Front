@@ -1,0 +1,41 @@
+<div class="relative flex flex-col items-center justify-center min-h-screen">
+  <a routerLink="/home" class="absolute top-4 right-4 lg:top-52 lg:right-[14rem] cursor-pointer">
+    <mat-icon class="text-[#18b8d8]">logout</mat-icon>
+  </a>
+
+  <div
+    class="w-[90%] md:w-[70%] h-auto bg-white flex flex-col justify-between bg-opacity-10 border border-white rounded-xl p-6 text-black shadow-lg"
+  >
+    <div class="w-full h-auto flex flex-col lg:flex-row justify-start items-center gap-8">
+      <!-- Avatar -->
+      <div
+        class="flex items-center justify-center rounded-full bg-[#b0a2f7] w-20 h-20"
+      >
+        <p class="text-white text-3xl font-bold">{{ firstLetter }}</p>
+      </div>
+      <div class="flex flex-col justify-start items-start  lg:text-left">
+        <h2 class="text-black text-2xl font-bold">{{ student?.name }}</h2>
+        <p>Level: {{ student?.level }}</p>
+        <p>Grades: {{ student?.grades }}</p>
+
+        <div class="mt-2">
+          <p class="text-black text-xl">
+            Workbook:
+            <a
+              class="text-sm"
+              href="https://elt.oup.com/student/englishfile/?view=Standard&cc=global&selLanguage=en"
+            >
+              Sigue aprendiendo <span class="text-[#b0a2f7]">Presiona aqui!</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Datos de contacto -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-4">
+      <p>Email: {{ student?.email }}</p>
+      <p>Phone: {{ student?.phone }}</p>
+    </div>
+  </div>
+</div>

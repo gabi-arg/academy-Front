@@ -1,0 +1,37 @@
+<div class="w-full h-[100%] relative">
+
+  <app-navbar></app-navbar>
+  <section id="home"
+    class="flex flex-col md:flex-row w-full md:w-4/5 h-auto md:h-[450px] rounded-3xl py-4 px-6 mx-auto mt-2 bg-[#ffffff80]"
+  >
+    <div class="w-full md:w-[60%] p-2 flex flex-col justify-start items-start">
+      <h1 class="text-2xl md:text-5xl text-black mt-4 md:mt-8">
+        Domina el inglés y<br class="hidden md:block" />
+        abre las puertas al mundo!
+      </h1>
+      <p class="text-sm md:text-base text-black mt-4 md:mt-8">
+        Aprende inglés de manera fácil y rápida con nuestros cursos<br
+          class="hidden md:block"
+        />
+        Aprende con profesores nativos y métodos efectivos, desde cero hasta
+        <br class="hidden md:block" />
+        nivel avanzado.
+      </p>
+      <a href="#contact"
+         class="bg-[#fbea78] rounded-full text-black px-6 py-2 md:p-4 mt-4 md:mt-8 text-sm md:text-base"
+      >
+        ¡Comienza hoy!
+      </a>
+    </div>
+    <div class="w-full md:w-[40%] flex justify-center items-end mt-6 md:mt-0">
+      <img
+        src="/assets/images/logo.gif"
+        alt="img-principal"
+        class="w-4/5 md:w-full max-w-2xl"
+      />
+    </div>
+  </section>
+  <app-courses id="courses"></app-courses>
+  <app-testimonials id="testimonial" class="mt-16"></app-testimonials>
+  <app-contact id="contact"></app-contact>
+</div>

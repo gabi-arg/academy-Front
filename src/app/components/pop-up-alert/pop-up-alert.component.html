@@ -1,0 +1,17 @@
+<div *ngIf="show" class="fixed inset-0 flex items-center justify-center z-[9999]">
+  <!-- Fondo oscuro que cierra al hacer click -->
+  <div class="absolute inset-0 bg-[#e571d440]" (click)="closePopup()"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 bg-white text-black p-6 rounded-lg shadow-lg min-w-[300px] text-center border-2"
+       [ngClass]="{
+        'border-green-500': type === 'success',
+        'border-red-500': type === 'error',
+        'border-blue-500': type === 'info'
+       }">
+    <p class="text-lg font-medium mb-4">{{ message }}</p>
+    <button (click)="closePopup()" class="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded">
+      Cerrar
+    </button>
+  </div>
+</div>

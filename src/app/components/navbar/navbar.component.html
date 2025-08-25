@@ -1,0 +1,34 @@
+<!-- Navbar Desktop -->
+<nav class="navbar hidden md:flex lg:flex justify-between items-center p-3 bg-transparent w-[90%]">
+  <img src="/assets/images/logo.png" alt="logo" class="w-52 p-8">
+  <ul class="flex gap-10">
+    <li><a href="#home">Inicio</a></li>
+    <li><a href="#courses">Cursos</a></li>
+    <li><a href="#testimonial">Testimonios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <button class="mr-18 py-2 px-4 border border-[#fbea78] border-solid rounded-full" routerLink="/login">Login</button>
+</nav>
+
+<!-- Navbar Mobile -->
+<nav class="navbar flex md:hidden justify-between items-center p-3 bg-transparent w-full">
+  <img src="/assets/images/logo.png" alt="logo" class="w-32 p-2">
+  <div class="flex items-center gap-2">
+    <!-- Login icono -->
+    <button routerLink="/login">
+      <mat-icon>person</mat-icon>
+    </button>
+    <!-- Hamburguesa -->
+    <button (click)="isMenuOpen = !isMenuOpen">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</nav>
+<div *ngIf="isMenuOpen" class="absolute w-auto top-12 right-0  bg-[#ffffff] shadow-lg rounded-lg p-6  z-50 md:hidden">
+  <ul class="flex flex-col items-end gap-6 py-6 pr-8">
+    <li><a href="#home" (click)="scrollToSection('home')">Inicio</a></li>
+    <li><a href="#courses" (click)="scrollToSection('courses')">Cursos</a></li>
+    <li><a href="#testimonial" (click)="scrollToSection('testimonial')">Testimonios</a></li>
+    <li><a href="#contact" (click)="scrollToSection('contact')">Contacto</a></li>
+  </ul>
+</div>

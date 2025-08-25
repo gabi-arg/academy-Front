@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { testimonials } from '../../data/testimonials';
+import { CommonModule } from '@angular/common';
+@Component({
+  selector: 'app-testimonials',
+  standalone: true,
+  imports: [ CommonModule],
+  templateUrl: './testimonials.component.html',
+  styleUrl: './testimonials.component.css'
+})
+export class TestimonialsComponent {
+  testimonials = testimonials
+
+}

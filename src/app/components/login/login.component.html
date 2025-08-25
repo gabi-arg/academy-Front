@@ -1,0 +1,186 @@
+<div
+  class="relative w-[80%] max-w-4xl h-full md:h-[32rem] overflow-hidden rounded-lg mx-auto mt-10 md:mt-20"
+>
+  <a routerLink="/home" class="flex justify-end items-center p-4">
+    <mat-icon class="text-[#18b8d8]">home</mat-icon>
+  </a>
+  <div
+    [style.transform]="isRegister ? 'translateX(-50%)' : 'translateX(0)'"
+    class="flex w-[200%] h-full transition-transform duration-700 ease-in-out"
+  >
+    <!-- Login -->
+    <div class="w-1/2 h-full flex flex-col md:flex-row justify-center bg-white">
+      <div class="w-full md:w-7/12 flex items-center justify-center p-8">
+        <form class="flex flex-col justify-center w-full max-w-xs">
+          <h1 class="text-4xl font-bold mb-6">Sign In</h1>
+          <div class="mb-4">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              class="w-full p-3 border rounded-full"
+              [(ngModel)]="email"
+              #emailCtrl="ngModel"
+            />
+            <p
+              *ngIf="emailCtrl.invalid && emailCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            >
+              El email del usuario es requerido.
+            </p>
+          </div>
+          <div class="mb-4">
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              class="w-full p-3 border rounded-full"
+              [(ngModel)]="password"
+              #passwordCtrl="ngModel"
+            />
+            <p
+              *ngIf="passwordCtrl.invalid && passwordCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            >
+              La contraseña del usuario es requerida.
+            </p>
+          </div>
+          <button
+            type="button"
+            (click)="login()"
+            class="bg-[#fbea78] text-white py-3 rounded-full hover:bg-[#fbe97896] transition mb-4"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+      <div
+        class="w-full lg:h-[29rem] h-auto mx-auto md:w-5/12 flex flex-col items-center justify-center p-8 rounded-b-lg md:rounded-b-none lg:rounded-l-full md:bg-[#18b8d8] md:bg-opacity-40"
+      >
+        <div class="hidden md:block w-full flex-col items-center ml-32">
+          <img src="/assets/images/logo.png" alt="logo" class="w-44 p-2" />
+          <h1 class="text-4xl font-bold mb-6">WELCOME</h1>
+        </div>
+        <p>Don't have an account?</p>
+        <button
+          type="button"
+          (click)="toggleForm($event)"
+          class="text-black lg:text-white hover:underline"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+
+    <!-- Register -->
+    <div class="w-1/2 h-full flex flex-col md:flex-row justify-center bg-white">
+      <div class="w-full md:w-7/12 flex items-center justify-center p-8">
+        <form
+          #registerForm="ngForm"
+          class="flex flex-col justify-center w-full max-w-xs"
+        >
+          <h1 class="text-4xl font-bold mb-6">Register</h1>
+          <div class="mb-4">
+            <input
+              name="username"
+              type="text"
+              placeholder="Username"
+              [(ngModel)]="username"
+              #usernameCtrl="ngModel"
+              required
+              class="w-full p-3 border rounded-full"
+            />
+            <p
+              *ngIf="usernameCtrl.invalid && usernameCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            >
+              El nombre de usuario es requerido.
+            </p>
+          </div>
+          <div class="mb-4">
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              [(ngModel)]="email"
+              required
+              #emailCtrl="ngModel"
+              class="w-full p-3 border rounded-full"
+            />
+            <p
+              *ngIf="emailCtrl.invalid && emailCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            >
+              El email del usuario es requerido.
+            </p>
+          </div>
+          <div class="mb-4">
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              [(ngModel)]="password"
+              required
+              #passwordCtrl="ngModel"
+              class="w-full  p-3 border rounded-full"
+            />
+            <p
+              *ngIf="passwordCtrl.invalid && passwordCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            >
+              La contraseña del usuario es requerida.
+            </p>
+          </div>
+          <div class="mb-4">
+            <select
+              name="role"
+              class="w-full p-3 border rounded-full"
+              [(ngModel)]="role"
+              required
+              #roleCtrl="ngModel"
+            >
+              <option value="Student">Alumno</option>
+              <option value="Admin">Admin</option>
+              <span
+              class="absolute left-4 top-3 text-gray-400 pointer-events-none"
+              *ngIf="!role"
+            >
+              Seleccioná un rol
+            </span>
+            </select>
+
+            <p
+              *ngIf="roleCtrl.invalid && roleCtrl.touched"
+              class="text-red-500 text-sm ml-2"
+            ></p>
+          </div>
+          <button
+            type="button"
+            (click)="register()"
+            class="bg-[#fbea78] text-white py-3 rounded-full hover:bg-[#fbe97896] transition mb-4"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+      <div
+        class="w-full lg:h-[29rem] h-auto m md:w-5/12 flex flex-col items-center justify-center p-8 md:rounded-l-full md:bg-[#18b8d8] md:bg-opacity-40"
+      >
+        <div class="hidden md:block w-full flex-col items-center ml-32">
+          <img src="/assets/images/logo.png" alt="logo" class="w-44 p-2" />
+          <h1 class="text-4xl font-bold mb-6">WELCOME</h1>
+        </div>
+        <p>Already have an account?</p>
+        <button
+          type="button"
+          (click)="toggleForm($event)"
+          class="text-black lg:text-white hover:underline"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

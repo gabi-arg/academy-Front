@@ -1,0 +1,14 @@
+
+<div class="flex flex-col md:grid md:grid-cols-2 gap-8 w-[70%] mx-auto mt-16">
+  <div *ngFor="let idem of testimonials" class="bg-[#ffffffbc] p-4 rounded-lg gap-6 border">
+    <img [src]="idem.photo" [alt]="idem.name" class="w-[80px] h-[80px] rounded-full mx-auto mb-2" />
+    <p class="text-center font-semibold">{{ idem.name }}</p>
+    <p class="text-sm text-gray-600 text-center">{{ idem.testimonial }}</p>
+  </div>
+</div>
+<div class="text-center mt-16">
+  <a href="#contact" class="bg-[#fbea78] rounded-full text-black px-6 py-2 md:p-4 text-sm md:text-base">
+    ¡Comienza hoy!
+  </a>
+
+</div>
