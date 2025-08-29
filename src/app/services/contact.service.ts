@@ -18,7 +18,7 @@ export interface ContactForm {
 })
 export class ContactService {
 
-   private apiUrl = 'http://localhost:5231/api/contact';
+   private apiUrl = 'https://academy-back-2.onrender.com/api/contact';
   constructor(private http: HttpClient) {
 
   }

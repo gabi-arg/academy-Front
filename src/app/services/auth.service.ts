@@ -18,7 +18,7 @@ interface LoginDto {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:5231/api/auth';
+  private baseUrl = 'https://academy-back-2.onrender.com/api/auth';
 
 
   constructor(private http: HttpClient,  private router: Router) {}

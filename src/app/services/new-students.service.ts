@@ -19,7 +19,7 @@ export interface StudentForm {
 })
 export class NewStudentsService {
   private currentStudent: StudentForm | null = null;
-  private apiUrl = 'http://localhost:5231/api/student';
+  private apiUrl = 'https://academy-back-2.onrender.com/api/student';
   private studentAddedSource = new Subject<void>();
   studentAdded$ = this.studentAddedSource.asObservable();
   constructor(private http: HttpClient) {
