@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ContactForm, ContactService } from '../../services/contact.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { PopupService } from '../../services/popup.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ FormsModule],
+  imports: [ FormsModule,CommonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
@@ -21,7 +21,7 @@ export class ContactComponent {
   };
 
   constructor(private contactService: ContactService,private popupService: PopupService) {}
-onSubmit() {
+onSubmit(form: NgForm) {
     this.contactService.sendContactForm(this.contactForm).subscribe({
       next: (res) => {
        this.popupService.showPopup('¡Mensaje enviado con éxito!');
@@ -33,6 +33,7 @@ onSubmit() {
           phone: '',
           message: ''
         };
+        form.resetForm();
       },
       error: (err) => {
         this.popupService.showPopup('Hubo un error, intenta nuevamente.');
